@@ -35,3 +35,6 @@ gcc main.c bibliotheque.c -o programme
 
 ## Exécution
 ./programme
+=========
+ Structure de données pour la gestion des étudiants 
+>>>>>>>>> Temporary merge branch 2
