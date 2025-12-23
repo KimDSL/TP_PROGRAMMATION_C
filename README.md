@@ -28,7 +28,6 @@ L'objectif de ce projet est de créer une structure de données en langage C pou
 - Recherche par dichotomie
 - Tri par filière
 - Calcul de l'âge des étudiants
-- Sauvegarder les données dans un fichier
 
 ## Compilation
 gcc main.c bibliotheque.c -o programme
