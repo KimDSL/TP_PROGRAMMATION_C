@@ -41,4 +41,24 @@ void libererGestion(GestionEtudiants *gestion);
 // Définition de la fonction pour augmenter la capacite du tableau quand il est plein
 int redimensionnerGestion(GestionEtudiants *gestion);
 
+// Définition de la fonction pour afficher les details d'un etudiant
+void afficherEtudiant(Etudiant etudiant, int index);
+
+// Définition de la fonction pour afficher tous les etudiants stockés
+void afficherTousLesEtudiants(GestionEtudiants *gestion);
+
+// Définition de la fonction pour comparer deux etudiants par matricule pour la recherche dichotomique
+int comparerEtudiantsParMatricule(const void *a, const void *b);
+
+// Définition de la fonction pour comparer deux etudiants par nom pour le tri par ordre alphabetique
+int comparerEtudiantsParNom(const void *a, const void *b);
+
+// Définition de la fonction pour comparer deux etudiants par option pour le tri par option
+int comparerEtudiantsParOption(const void *a, const void *b);
+
+// Définition de la fonction pour comparer deux etudiants par departement pour le tri par departement
+int comparerEtudiantsParDepartement(const void *a, const void *b);
+
+// Définition de la fonction pour comparer deux etudiants par niveau pour le tri par niveau
+int comparerEtudiantsParNiveau(const void *a, const void *b);
 #endif

@@ -49,7 +49,64 @@ int redimensionnerGestion(GestionEtudiants *gestion)
     return 1;
 }
 
+// Définition de la fonction pour afficher les details d'un etudiant
+void afficherEtudiant(Etudiant etudiant, int index)
+{
+    printf("Etudiant #%d\n", index);
+    printf("Matricule : %s\n", etudiant.matricule);
+    printf("Nom : %s %s\n", etudiant.nom, etudiant.prenom);
+    printf("Date de naissance : %02d/%02d/%04d\n",
+           etudiant.dateNaissance.jour,
+           etudiant.dateNaissance.mois,
+           etudiant.dateNaissance.annee);
+    printf("Genre : %c\n", etudiant.genre);
+    printf("Departement : %s\n", etudiant.departement);
+    printf("Option : %s\n", etudiant.option);
+    printf("Region d'origine : %s\n", etudiant.regionOrigine);
+    printf("Niveau : %d\n", etudiant.niveau);
+}
 
+// Définition de la fonction pour afficher tous les etudiants stockés
+void afficherTousLesEtudiants(GestionEtudiants *gestion)
+{
+    for (int i = 0; i < gestion->nombre; i++)
+    {
+        afficherEtudiant(gestion->liste[i], i);
+        printf("----------------------\n");
+    }
+}
+
+// Définition de la fonction pour comparer deux etudiants par matricule pour la recherche dichotomique
+int comparerEtudiantsParMatricule(const void *a, const void *b)
+{
+    const Etudiant *e1 = (const Etudiant *)a;
+    const Etudiant *e2 = (const Etudiant *)b;
+    return strcmp(e1->matricule, e2->matricule);
+}
+
+// Définition de la fonction pour comparer deux etudiants par nom pour le tri par ordre alphabetique
+int comparerEtudiantsParNom(const void *a, const void *b)
+{
+    const Etudiant *etudiantA = (const Etudiant *)a;
+    const Etudiant *etudiantB = (const Etudiant *)b;
+    return strcmp(etudiantA->nom, etudiantB->nom);
+}
+
+// Définition de la fonction pour comparer deux etudiants par option pour le tri par option
+int comparerEtudiantsParOption(const void *a, const void *b)
+{
+    const Etudiant *etudiantA = (const Etudiant *)a;
+    const Etudiant *etudiantB = (const Etudiant *)b;
+    return strcmp(etudiantA->option, etudiantB->option);
+}
+
+// Définition de la fonction pour comparer deux etudiants par departement pour le tri par departement
+int comparerEtudiantsParDepartement(const void *a, const void *b)
+{
+    const Etudiant *etudiantA = (const Etudiant *)a;
+    const Etudiant *etudiantB = (const Etudiant *)b;
+    return strcmp(etudiantA->departement, etudiantB->departement);
+}
 
 // Définition de la fonction pour comparer deux etudiants par niveau pour le tri par niveau
 int comparerEtudiantsParNiveau(const void *a, const void *b)
