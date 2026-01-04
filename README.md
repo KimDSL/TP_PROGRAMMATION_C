@@ -1,5 +1,5 @@
 # TP_PROGRAMMATION_C
- Structure de données pour la gestion des étudiants ENSPM-Cameroon
+ Mini appli console en C pour la gestion efficace des étudiants. 
 
 ## Membres du groupe
 - BIONDI BIONDI KEDENG EMMANUEL
@@ -13,9 +13,10 @@ L'objectif de ce projet est de créer une structure de données en langage C pou
 
 ## Techniques utilisées
 - Langage de programmation C
+- Tableau dynamique pour stocker les étudiants
 - Structures de données
 - Fonction pour calculer l'âge à partir de la date de naissance
-- Fonctions pour les opérations CRUD (Créer, Lire, Mettre à jour, Supprimer)
+- Fonctions pour les opérations: Créer, Lire, Mettre à jour, Supprimer
 - Tri et recherche dans les tableaux
 
 ## Fonctionnalités
@@ -24,13 +25,15 @@ L'objectif de ce projet est de créer une structure de données en langage C pou
 - Mettre à jour les informations d'un étudiant
 - Afficher la liste des étudiants
 - Rechercher un étudiant par son matricule
-- Tri par ordre alphabétique des noms et prénoms
+- Tri par ordre alphabétique des noms
 - Recherche par dichotomie
-- Tri par filière
+- Tri par option
+- Tri par département
+- Tri par niveau
 - Calcul de l'âge des étudiants
 
 ## Compilation
-gcc main.c bibliotheque.c -o programme
+gcc main.c etudiant.c operations.c affichage.c -o programme
 
 ## Exécution
 ./programme
