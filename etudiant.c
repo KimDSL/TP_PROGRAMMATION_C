@@ -1,22 +1,15 @@
 #include "etudiant.h"
 
 // Définition de la fonction pour initialiser la structure de gestion
-void initialiserGestion(GestionEtudiants *gestion, int capacite)
-{
-    /* Allouer la memoire pour le tableau d'etudiants */
-    gestion->liste = (Etudiant *)malloc(sizeof(Etudiant) * capacite);
+void initialiserGestion(GestionEtudiants *gestion, int capacite){
+    
+    gestion->liste =  malloc(sizeof(Etudiant) * capacite);
 
-    /* Verifier si l'allocation a reussi */
-    if (gestion->liste == NULL)
-    {
-        fprintf(stderr, "Erreur : Echec de l'allocation memoire\n");
-        exit(EXIT_FAILURE);
+    if(gestion->liste == NULL){
+        fprintf(stderr, "Erreur d'allocation memoire\n");
+        exit(EXIT_FAILURE); 
     }
-
-    gestion->nombre = 0;
-    gestion->capacite = capacite;
 }
-
 // Définition de la fonction pour libérer la mémoire allouée pour la gestion
 void libererGestion(GestionEtudiants *gestion)
 {
@@ -29,16 +22,10 @@ void libererGestion(GestionEtudiants *gestion)
 // Définition de la fonction pour augmenter la capacite du tableau quand il est plein
 int redimensionnerGestion(GestionEtudiants *gestion)
 {
-    // Calcul de la nouvelle capacité
     int nouvelleCapacite = gestion->capacite * 2;
+    Etudiant *nouvelleListe = realloc(gestion->liste, sizeof(Etudiant) * nouvelleCapacite);
 
-    // Reallocation de la memoire avec la nouvelle capacite 
-    Etudiant *nouvelleListe = (Etudiant *)realloc(gestion->liste,
-                                                  sizeof(Etudiant) * nouvelleCapacite);
-
-    // Verification de si la reallocation a reussi
-    if (nouvelleListe == NULL)
-    {
+    if (nouvelleListe == NULL){
         fprintf(stderr, "Erreur : Echec de la reallocation memoire\n");
         return 0;
     }
@@ -50,15 +37,11 @@ int redimensionnerGestion(GestionEtudiants *gestion)
 }
 
 // Définition de la fonction pour afficher les details d'un etudiant
-void afficherEtudiant(Etudiant etudiant, int index)
-{
-    printf("Etudiant #%d\n", index);
+void afficherEtudiant(Etudiant etudiant, int index){
+    printf("Etudiant %d\n", index);
     printf("Matricule : %s\n", etudiant.matricule);
     printf("Nom : %s %s\n", etudiant.nom, etudiant.prenom);
-    printf("Date de naissance : %02d/%02d/%04d\n",
-           etudiant.dateNaissance.jour,
-           etudiant.dateNaissance.mois,
-           etudiant.dateNaissance.annee);
+    printf("Date de naissance : %02d/%02d/%04d\n",etudiant.dateNaissance.jour,etudiant.dateNaissance.mois,etudiant.dateNaissance.annee);
     printf("Genre : %c\n", etudiant.genre);
     printf("Departement : %s\n", etudiant.departement);
     printf("Option : %s\n", etudiant.option);
@@ -67,50 +50,43 @@ void afficherEtudiant(Etudiant etudiant, int index)
 }
 
 // Définition de la fonction pour afficher tous les etudiants stockés
-void afficherTousLesEtudiants(GestionEtudiants *gestion)
-{
-    for (int i = 0; i < gestion->nombre; i++)
-    {
+void afficherTousLesEtudiants(GestionEtudiants *gestion){
+    for (int i = 0; i < gestion->nombre; i++){
         afficherEtudiant(gestion->liste[i], i);
         printf("----------------------\n");
     }
 }
 
 // Définition de la fonction pour comparer deux etudiants par matricule pour la recherche dichotomique
-int comparerEtudiantsParMatricule(const void *a, const void *b)
-{
-    const Etudiant *e1 = (const Etudiant *)a;
-    const Etudiant *e2 = (const Etudiant *)b;
-    return strcmp(e1->matricule, e2->matricule);
+int comparerEtudiantsParMatricule(const void *a, const void *b){
+    const Etudiant *etudiantA = (const Etudiant *)a;
+    const Etudiant *etudiantB = (const Etudiant *)b;
+    return strcmp(etudiantA->matricule, etudiantB->matricule);
 }
 
 // Définition de la fonction pour comparer deux etudiants par nom pour le tri par ordre alphabetique
-int comparerEtudiantsParNom(const void *a, const void *b)
-{
+int comparerEtudiantsParNom(const void *a, const void *b){
     const Etudiant *etudiantA = (const Etudiant *)a;
     const Etudiant *etudiantB = (const Etudiant *)b;
     return strcmp(etudiantA->nom, etudiantB->nom);
 }
 
 // Définition de la fonction pour comparer deux etudiants par option pour le tri par option
-int comparerEtudiantsParOption(const void *a, const void *b)
-{
+int comparerEtudiantsParOption(const void *a, const void *b){
     const Etudiant *etudiantA = (const Etudiant *)a;
     const Etudiant *etudiantB = (const Etudiant *)b;
     return strcmp(etudiantA->option, etudiantB->option);
 }
 
 // Définition de la fonction pour comparer deux etudiants par departement pour le tri par departement
-int comparerEtudiantsParDepartement(const void *a, const void *b)
-{
+int comparerEtudiantsParDepartement(const void *a, const void *b){
     const Etudiant *etudiantA = (const Etudiant *)a;
     const Etudiant *etudiantB = (const Etudiant *)b;
     return strcmp(etudiantA->departement, etudiantB->departement);
 }
 
 // Définition de la fonction pour comparer deux etudiants par niveau pour le tri par niveau
-int comparerEtudiantsParNiveau(const void *a, const void *b)
-{
+int comparerEtudiantsParNiveau(const void *a, const void *b){
     const Etudiant *etudiantA = (const Etudiant *)a;
     const Etudiant *etudiantB = (const Etudiant *)b;
     return etudiantA->niveau - etudiantB->niveau;
