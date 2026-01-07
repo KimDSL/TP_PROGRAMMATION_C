@@ -6,29 +6,32 @@
 #include <string.h>
 
 // Structure pour stocker la date de naissance
-typedef struct {
+typedef struct
+{
     int jour;
     int mois;
     int annee;
 } Date;
 
 // Structure pour stocker les informations d'un etudiant
-typedef struct {
-    char matricule[20];     
-    char nom[50];          
-    char prenom[50];        
-    Date dateNaissance;     
-    char genre;             
-    char departement[50];   
-    char option[50];        
-    char regionOrigine[50]; 
-    int niveau;             
+typedef struct
+{
+    char matricule[20];
+    char nom[50];
+    char prenom[50];
+    Date dateNaissance;
+    char genre;
+    char departement[50];
+    char option[50];
+    char regionOrigine[50];
+    int niveau;
 } Etudiant;
 
 // Structure pour la gestion d'un tableau dynamique d'etudiants
-typedef struct {
-    Etudiant *liste; // Tableau dynamique d'etudiants 
-    int nombre;      // Nombre actuel d'etudiants 
+typedef struct
+{
+    Etudiant *liste; // Tableau dynamique d'etudiants
+    int nombre;      // Nombre actuel d'etudiants
     int capacite;    // Capacite maximale du tableau
 } GestionEtudiants;
 
@@ -61,4 +64,5 @@ int comparerEtudiantsParDepartement(const void *a, const void *b);
 
 // Définition de la fonction pour comparer deux etudiants par niveau pour le tri par niveau
 int comparerEtudiantsParNiveau(const void *a, const void *b);
+
 #endif
