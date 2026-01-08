@@ -2,17 +2,18 @@
 
 // Définition de la fonction pour initialiser la structure de gestion
 void initialiserGestion(GestionEtudiants *gestion, int capacite){
-    
-    gestion->liste =  malloc(sizeof(Etudiant) * capacite);
 
-    if(gestion->liste == NULL){
+    gestion->capacite = capacite;
+    gestion->nombre = 0;
+    gestion->liste = (Etudiant *)malloc(sizeof(Etudiant) * capacite);
+
+    if (gestion->liste == NULL){
         fprintf(stderr, "Erreur d'allocation memoire\n");
-        exit(EXIT_FAILURE); 
+        exit(EXIT_FAILURE);
     }
 }
 // Définition de la fonction pour libérer la mémoire allouée pour la gestion
-void libererGestion(GestionEtudiants *gestion)
-{
+void libererGestion(GestionEtudiants *gestion){
     free(gestion->liste);
     gestion->liste = NULL;
     gestion->nombre = 0;
@@ -20,10 +21,9 @@ void libererGestion(GestionEtudiants *gestion)
 }
 
 // Définition de la fonction pour augmenter la capacite du tableau quand il est plein
-int redimensionnerGestion(GestionEtudiants *gestion)
-{
+int redimensionnerGestion(GestionEtudiants *gestion){
     int nouvelleCapacite = gestion->capacite * 2;
-    Etudiant *nouvelleListe = realloc(gestion->liste, sizeof(Etudiant) * nouvelleCapacite);
+    Etudiant *nouvelleListe = (Etudiant *)realloc(gestion->liste, sizeof(Etudiant) * nouvelleCapacite);
 
     if (nouvelleListe == NULL){
         fprintf(stderr, "Erreur : Echec de la reallocation memoire\n");
@@ -41,7 +41,7 @@ void afficherEtudiant(Etudiant etudiant, int index){
     printf("Etudiant %d\n", index);
     printf("Matricule : %s\n", etudiant.matricule);
     printf("Nom : %s %s\n", etudiant.nom, etudiant.prenom);
-    printf("Date de naissance : %02d/%02d/%04d\n",etudiant.dateNaissance.jour,etudiant.dateNaissance.mois,etudiant.dateNaissance.annee);
+    printf("Date de naissance : %02d/%02d/%04d\n", etudiant.dateNaissance.jour, etudiant.dateNaissance.mois, etudiant.dateNaissance.annee);
     printf("Genre : %c\n", etudiant.genre);
     printf("Departement : %s\n", etudiant.departement);
     printf("Option : %s\n", etudiant.option);
