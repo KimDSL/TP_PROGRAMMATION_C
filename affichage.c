@@ -4,7 +4,7 @@
 #include "etudiant.h"
 #include "operations.h"
 #include "affichage.h"
-
+//contenu de fonctios
 void afficherMenu(GestionEtudiants *gestion)
 {
     printf("\n");
