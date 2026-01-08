@@ -1,5 +1,4 @@
-#ifndef D8D5D707_D855_4ACA_A931_EB3924633909
-#define D8D5D707_D855_4ACA_A931_EB3924633909
+int supprimerEtudiant(GestionEtudiants *gestion, int index);
+int rechercheDichotomique(Etudiant *liste, int nombre, const char *matricule);
 
-
-#endif /* D8D5D707_D855_4ACA_A931_EB3924633909 */
+#endif
