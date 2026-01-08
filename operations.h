@@ -1,5 +1,12 @@
-#ifndef D8D5D707_D855_4ACA_A931_EB3924633909
-#define D8D5D707_D855_4ACA_A931_EB3924633909
+#ifndef OPERATIONS_H
+#define OPERATIONS_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "etudiant.h"
 
-#endif /* D8D5D707_D855_4ACA_A931_EB3924633909 */
+int ajouterEtudiant(GestionEtudiants *gestion, Etudiant etudiant);
+Etudiant obtenirEtudiant(GestionEtudiants *gestion, const char *matricule);
+int selectionnerEtudiant(GestionEtudiants *gestion);
+void modifierEtudiant(GestionEtudiants *gestion, int index);
