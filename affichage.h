@@ -2,7 +2,7 @@
 #define AFFICHAGE_H
 
 #include "etudiant.h"
-// definition de fonction
+// definition de fonctions
 void afficherMenu(GestionEtudiants *gestion);
 void afficherFormulaireInscrire(GestionEtudiants *gestion);
 void afficherEtudiantTrouve(Etudiant *etudiant);
