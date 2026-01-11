@@ -3,6 +3,7 @@
 
 #include "etudiant.h"
 
+// Définition des fonctions
 void afficherMenu(GestionEtudiants *gestion);
 void afficherFormulaireInscrire(GestionEtudiants *gestion);
 void afficherEtudiantTrouve(Etudiant *etudiant);
