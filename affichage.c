@@ -5,7 +5,7 @@
 #include "operations.h"
 #include "affichage.h"
 
-// Définition des fonctions
+// Définition des fonctions pour le menu
 void afficherMenu(GestionEtudiants *gestion)
 {
     printf("\n");
