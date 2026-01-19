@@ -1,5 +1,12 @@
-#ifndef D1114839_304D_483B_9A40_51D8A0F1E3CA
-#define D1114839_304D_483B_9A40_51D8A0F1E3CA
+#ifndef AFFICHAGE_H
+#define AFFICHAGE_H
 
+#include "etudiant.h"
 
-#endif /* D1114839_304D_483B_9A40_51D8A0F1E3CA */
+// Définition des fonctions pour le menu
+void afficherMenu(GestionEtudiants *gestion);
+void afficherFormulaireInscrire(GestionEtudiants *gestion);
+void afficherEtudiantTrouve(Etudiant *etudiant);
+void afficherMenuRechercherEtudiant(GestionEtudiants *gestion);
+void afficherMenuRechercheDichotomique(GestionEtudiants *gestion);
+void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index);
