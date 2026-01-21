@@ -3,7 +3,7 @@
 #include <string.h>
 #include "operations.h"
 
-// Ajouter un nouvel etudiant a la liste de gestion
+// Ajouter un nouvel étudiant à la liste de gestion
 int ajouterEtudiant(GestionEtudiants *gestion, Etudiant etudiant)
 {
     if (gestion == NULL)
@@ -20,7 +20,7 @@ int ajouterEtudiant(GestionEtudiants *gestion, Etudiant etudiant)
     return 1;
 }
 
-// Obtenir un etudiant par son matricule
+// Obtenir un étudiant par son matricule
 Etudiant obtenirEtudiant(GestionEtudiants *gestion, const char *matricule)
 {
     Etudiant etudiantVide;
@@ -31,7 +31,7 @@ Etudiant obtenirEtudiant(GestionEtudiants *gestion, const char *matricule)
         return etudiantVide;
     if (gestion->nombre == 0)
     {
-        printf("Aucun etudiant dans la base.");
+        printf("Aucun étudiant dans la base.");
         return etudiantVide;
     }
 
@@ -41,32 +41,32 @@ Etudiant obtenirEtudiant(GestionEtudiants *gestion, const char *matricule)
             return gestion->liste[i];
     }
 
-    printf("Aucun etudiant trouve avec le matricule '%s'\n", matricule);
+    printf("Aucun étudiant trouve avec le matricule '%s'\n", matricule);
     return etudiantVide;
 }
 
-// Selectionner un etudiant de maniere interactive
+// Selectionner un étudiant de maniere interactive
 int selectionnerEtudiant(GestionEtudiants *gestion)
 {
     if (gestion == NULL || gestion->liste == NULL || gestion->nombre == 0)
     {
-        printf("Erreur : Aucun etudiant dans la base !\n");
+        printf("Erreur : Aucun étudiant dans la base !\n");
         return -1;
     }
-    // Demande le matricule a l'utilisateur
+    // Demande le matricule à l'utilisateur
     char matricule[20];
     printf("\n=== SELECTION D'UN ETUDIANT ===\n");
-    printf("Entrez le matricule de l'etudiant: ");
+    printf("Entrez le matricule de l'étudiant: ");
     fgets(matricule, sizeof(matricule), stdin);
     matricule[strcspn(matricule, "\n")] = '\0';
 
-    // Rechercher l'etudiant dans la liste
+    // Rechercher l'étudiant dans la liste
     for (int i = 0; i < gestion->nombre; i++)
     {
         if (strcmp(gestion->liste[i].matricule, matricule) == 0)
         {
             printf("\nEtudiant trouve a l'index %d :\n", i);
-            printf("===== Informations de l'etudiant =====\n");
+            printf("===== Informations de l'étudiant =====\n");
             printf("Matricule     : %s\n", gestion->liste[i].matricule);
             printf("Nom           : %s\n", gestion->liste[i].nom);
             printf("Prenom        : %s\n", gestion->liste[i].prenom);
@@ -80,12 +80,12 @@ int selectionnerEtudiant(GestionEtudiants *gestion)
             return i;
         }
     }
-    // Etudiant non trouve
-    printf("\nAucun etudiant trouve avec le matricule '%s'\n", matricule);
+    // Etudiant non trouvé
+    printf("\nAucun étudiant trouve avec le matricule '%s'\n", matricule);
     return -1;
 }
 
-// Modifier les informations d'un etudiant a un index donne
+// Modifier les informations d'un étudiant à un index donné
 void modifierEtudiant(GestionEtudiants *gestion, int index)
 {
     if (gestion == NULL || gestion->liste == NULL || index < 0 || index >= gestion->nombre)
@@ -117,75 +117,75 @@ void modifierEtudiant(GestionEtudiants *gestion, int index)
     while (getchar() != '\n')
         ;
 
-    /* Traiter le choix */
+    /* Traiter le choix */$
     switch (choix)
     {
     case 1:
         printf("Nouveau matricule: ");
         fgets(e->matricule, sizeof(e->matricule), stdin);
         e->matricule[strcspn(e->matricule, "\n")] = '\0';
-        printf("Matricule modifie !\n");
+        printf("Matricule modifié !\n");
         break;
     case 2:
         printf("Nouveau nom: ");
         fgets(e->nom, sizeof(e->nom), stdin);
         e->nom[strcspn(e->nom, "\n")] = '\0';
-        printf("Nom modifie !\n");
+        printf("Nom modifié !\n");
         break;
     case 3:
         printf("Nouveau prenom: ");
         fgets(e->prenom, sizeof(e->prenom), stdin);
         e->prenom[strcspn(e->prenom, "\n")] = '\0';
-        printf("Prenom modifie !\n");
+        printf("Prenom modifié !\n");
         break;
     case 4:
         printf("Nouvelle date (jj/mm/aaaa): ");
         scanf("%d/%d/%d", &e->dateNaissance.jour, &e->dateNaissance.mois, &e->dateNaissance.annee);
         while (getchar() != '\n')
             ;
-        printf("Date modifiee !\n");
+        printf("Date modifiée !\n");
         break;
     case 5:
         printf("Nouveau genre (M/F): ");
         scanf(" %c", &e->genre);
         while (getchar() != '\n')
             ;
-        printf("Genre modifie !\n");
+        printf("Genre modifié !\n");
         break;
     case 6:
         printf("Nouveau departement: ");
         fgets(e->departement, sizeof(e->departement), stdin);
         e->departement[strcspn(e->departement, "\n")] = '\0';
-        printf("Departement modifie !\n");
+        printf("Departement modifié !\n");
         break;
     case 7:
         printf("Nouvelle option: ");
         fgets(e->option, sizeof(e->option), stdin);
         e->option[strcspn(e->option, "\n")] = '\0';
-        printf("Option modifiee !\n");
+        printf("Option modifiée !\n");
         break;
     case 8:
         printf("Nouvelle region: ");
         fgets(e->regionOrigine, sizeof(e->regionOrigine), stdin);
         e->regionOrigine[strcspn(e->regionOrigine, "\n")] = '\0';
-        printf("Region modifiee !\n");
+        printf("Region modifiée !\n");
         break;
     case 9:
         printf("Nouveau niveau: ");
         scanf("%d", &e->niveau);
         while (getchar() != '\n')
             ;
-        printf("Niveau modifie !\n");
+        printf("Niveau modifié !\n");
         break;
     case 0:
-        printf("Modification annulee.\n");
+        printf("Modification annulée.\n");
         break;
     default:
         printf("Choix invalide !\n");
     }
 }
 
-// Supprimer un etudiant de la liste a un index donne
+// Supprimer un étudiant de la liste a un index donne
 int supprimerEtudiant(GestionEtudiants *gestion, int index)
 {
     if (gestion == NULL || gestion->liste == NULL || gestion->nombre == 0)
@@ -194,19 +194,19 @@ int supprimerEtudiant(GestionEtudiants *gestion, int index)
     if (index < 0 || index >= gestion->nombre)
         return 0;
 
-    printf("\nSuppression de l'etudiant :\n");
+    printf("\nSuppression de l'étudiant :\n");
     printf("   Matricule : %s\n", gestion->liste[index].matricule);
     printf("   Nom : %s %s\n", gestion->liste[index].nom, gestion->liste[index].prenom);
 
-    // decallage
+    // décallage
     for (int i = index; i < gestion->nombre - 1; i++)
     {
         gestion->liste[i] = gestion->liste[i + 1];
     }
-    // reduction du nombre d'etudiant
+    // reduction du nombre d'étudiant
     gestion->nombre--;
 
-    // Optimiser la memoire si necessaire
+    // Optimiser la mémoire si necessaire
     if (gestion->nombre > 0 && gestion->nombre < gestion->capacite / 2 && gestion->capacite > 10)
     {
         int nouvelleCapacite = gestion->capacite / 2;
@@ -226,7 +226,7 @@ int supprimerEtudiant(GestionEtudiants *gestion, int index)
     return 1;
 }
 
-// Fonction de recherche dichotomique pour trouver un etudiant par matricule
+// Fonction de recherche dichotomique pour trouver un étudiant par matricule
 int rechercheDichotomique(Etudiant *liste, int nombre, const char *nom)
 {
     int gauche = 0;
