@@ -13,7 +13,7 @@ typedef struct
     int annee;
 } Date;
 
-// Structure pour stocker les informations d'un etudiant
+// Structure pour stocker les informations d'un étudiant
 typedef struct
 {
     char matricule[20];
@@ -27,11 +27,11 @@ typedef struct
     int niveau;
 } Etudiant;
 
-// Structure pour la gestion d'un tableau dynamique d'etudiants
+// Structure pour la gestion d'un tableau dynamique d'étudiants
 typedef struct
 {
-    Etudiant *liste; // Tableau dynamique d'etudiants
-    int nombre;      // Nombre actuel d'etudiants
+    Etudiant *liste; // Tableau dynamique d'étudiants
+    int nombre;      // Nombre actuel d'étudiants
     int capacite;    // Capacite maximale du tableau
 } GestionEtudiants;
 
@@ -41,19 +41,19 @@ void initialiserGestion(GestionEtudiants *gestion, int capacite);
 // Définition de la fonction pour libérer la mémoire allouée pour la gestion
 void libererGestion(GestionEtudiants *gestion);
 
-// Définition de la fonction pour augmenter la capacite du tableau quand il est plein
+// Définition de la fonction pour augmenter la capacite du tableau quant il est plein
 int redimensionnerGestion(GestionEtudiants *gestion);
 
-// Définition de la fonction pour comparer deux etudiants par nom pour le tri par ordre alphabetique
+// Définition de la fonction pour comparer deux étudiants par nom pour le tri par ordre alphabetique
 int comparerEtudiantsParNom(const void *a, const void *b);
 
-// Définition de la fonction pour comparer deux etudiants par option pour le tri par option
+// Définition de la fonction pour comparer deux étudiants par option pour le tri par option
 int comparerEtudiantsParOption(const void *a, const void *b);
 
-// Définition de la fonction pour comparer deux etudiants par departement pour le tri par departement
+// Définition de la fonction pour comparer deux étudiants par departement pour le tri par departement
 int comparerEtudiantsParDepartement(const void *a, const void *b);
 
-// Définition de la fonction pour comparer deux etudiants par niveau pour le tri par niveau
+// Définition de la fonction pour comparer deux étudiants par niveau pour le tri par niveau
 int comparerEtudiantsParNiveau(const void *a, const void *b);
 
 #endif
