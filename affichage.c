@@ -13,17 +13,17 @@ void afficherMenu(GestionEtudiants *gestion)
     printf("|   SYSTEME DE GESTION DES ETUDIANTS     |\n");
     printf("+========================================+\n\n");
 
-    printf("1. Inscrire un etudiant\n");
+    printf("1. Inscrire un étudiant\n");
     printf("2. Modifier les informations\n");
     printf("3. Rechercher (par matricule)\n");
-    printf("4. Supprimer un etudiant\n");
+    printf("4. Supprimer un étudiant\n");
     printf("5. Trier par ordre alphabetique (nom)\n");
     printf("6. Recherche dichotomique\n");
-    printf("7. Calculer l'age de l'etudiant\n");
+    printf("7. Calculer l'age de l'étudiant\n");
     printf("8. Trier par option\n");
-    printf("9. Trier par departement\n");
+    printf("9. Trier par département\n");
     printf("10. Trier par niveau\n");
-    printf("11. Afficher tous les etudiants\n");
+    printf("11. Afficher tous les étudiants\n");
     printf("0. Quitter\n");
 
     printf("\nVotre choix: ");
@@ -62,7 +62,7 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+==============================+\n");
             printf("Etudiants tries par ordre alphabetique!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherListeEtudiants(gestion);
         }
@@ -72,9 +72,9 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+==============================+\n");
             printf("|              ERREUR          |\n");
             printf("+==============================+\n");
-            printf("Aucun etudiant a trier!\n");
+            printf("Aucun étudiant à trier!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherMenu(gestion);
         }
@@ -99,7 +99,7 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+==============================+\n");
             printf("Etudiants tries par option!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherListeEtudiants(gestion);
         }
@@ -109,9 +109,9 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+===============================+\n");
             printf("|              ERREUR           |\n");
             printf("+===============================+\n");
-            printf("Aucun etudiant a trier!\n");
+            printf("Aucun étudiant à trier!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherMenu(gestion);
         }
@@ -124,9 +124,9 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+==============================+\n");
             printf("|           TRI REUSSI         |\n");
             printf("+==============================+\n");
-            printf("Etudiants tries par departement!\n");
+            printf("Etudiants tries par département!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherListeEtudiants(gestion);
         }
@@ -136,9 +136,9 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+====================================+\n");
             printf("|              ERREUR                |\n");
             printf("+====================================+\n");
-            printf("Aucun etudiant a trier!\n");
+            printf("Aucun étudiant à trier!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherMenu(gestion);
         }
@@ -153,7 +153,7 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+====================================+\n");
             printf("Etudiants tries par niveau!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherListeEtudiants(gestion);
         }
@@ -163,9 +163,9 @@ void afficherMenu(GestionEtudiants *gestion)
             printf("+====================================+\n");
             printf("|              ERREUR                |\n");
             printf("+====================================+\n");
-            printf("Aucun etudiant a trier!\n");
+            printf("Aucun étudiant à trier!\n");
             printf("\n------------------------------------------------------------------------\n\n");
-            printf("Appuyez sur Entree pour continuer...");
+            printf("Appuyez sur Entrée pour continuer...");
             getchar();
             afficherMenu(gestion);
         }
@@ -203,7 +203,7 @@ void afficherFormulaireInscrire(GestionEtudiants *gestion)
     printf("+========================================================+\n");
     printf("|        INSCRIRE UN NOUVEL ETUDIANT                     |\n");
     printf("+========================================================+\n");
-    printf("Entrez les informations de l'etudiant :\n\n");
+    printf("Entrez les informations de l'étudiant :\n\n");
 
     Etudiant nouvelEtudiant;
     memset(&nouvelEtudiant, 0, sizeof(Etudiant));
@@ -232,7 +232,7 @@ void afficherFormulaireInscrire(GestionEtudiants *gestion)
     while (getchar() != '\n')
         ;
 
-    printf("Departement                    : ");
+    printf("Département                    : ");
     fgets(nouvelEtudiant.departement, sizeof(nouvelEtudiant.departement), stdin);
     nouvelEtudiant.departement[strcspn(nouvelEtudiant.departement, "\n")] = '\0';
 
@@ -240,11 +240,11 @@ void afficherFormulaireInscrire(GestionEtudiants *gestion)
     fgets(nouvelEtudiant.option, sizeof(nouvelEtudiant.option), stdin);
     nouvelEtudiant.option[strcspn(nouvelEtudiant.option, "\n")] = '\0';
 
-    printf("Region d'origine               : ");
+    printf("Région d'origine               : ");
     fgets(nouvelEtudiant.regionOrigine, sizeof(nouvelEtudiant.regionOrigine), stdin);
     nouvelEtudiant.regionOrigine[strcspn(nouvelEtudiant.regionOrigine, "\n")] = '\0';
 
-    printf("Niveau d'etude (1, 2, 3...)    : ");
+    printf("Niveau d'étude (1, 2, 3...)    : ");
     scanf("%d", &nouvelEtudiant.niveau);
     while (getchar() != '\n')
         ;
@@ -255,8 +255,8 @@ void afficherFormulaireInscrire(GestionEtudiants *gestion)
         printf("+======================================+\n");
         printf("|         INSCRIPTION REUSSIE          |\n");
         printf("+======================================+\n");
-        printf("L'etudiant a ete ajoute avec succes!\n");
-        printf("Total etudiants: %d/%d\n", gestion->nombre, gestion->capacite);
+        printf("L'étudiant a été ajouté avec succes!\n");
+        printf("Total étudiants: %d/%d\n", gestion->nombre, gestion->capacite);
     }
     else
     {
@@ -264,37 +264,37 @@ void afficherFormulaireInscrire(GestionEtudiants *gestion)
         printf("+==================================+\n");
         printf("|         ECHEC INSCRIPTION        |\n");
         printf("+==================================+\n");
-        printf("Impossible d'ajouter l'etudiant.\n");
+        printf("Impossible d'ajouter l'étudiant.\n");
     }
 
     printf("\n------------------------------------------------------------------------\n\n");
-    printf("Appuyez sur Entree pour continuer...");
+    printf("Appuyez sur Entrée pour continuer...");
     getchar();
     afficherMenu(gestion);
 }
 
-void afficherEtudiantTrouve(Etudiant *etudiant)
+void afficherEtudiantTrouve(Etudiant *étudiant)
 {
     printf("\n");
     printf("+==========================================+\n");
     printf("|              ETUDIANT TROUVE             |\n");
     printf("+==========================================+\n\n");
 
-    printf("  Matricule          : %s\n", etudiant->matricule);
-    printf("  Nom                : %s\n", etudiant->nom);
-    printf("  Prenom             : %s\n", etudiant->prenom);
+    printf("  Matricule          : %s\n", étudiant->matricule);
+    printf("  Nom                : %s\n", étudiant->nom);
+    printf("  Prenom             : %s\n", étudiant->prenom);
     printf("  Date de naissance  : %02d/%02d/%04d\n",
-           etudiant->dateNaissance.jour,
-           etudiant->dateNaissance.mois,
-           etudiant->dateNaissance.annee);
-    printf("  Genre              : %c\n", etudiant->genre);
-    printf("  Departement        : %s\n", etudiant->departement);
-    printf("  Option             : %s\n", etudiant->option);
-    printf("  Region d'origine   : %s\n", etudiant->regionOrigine);
-    printf("  Niveau             : %d\n", etudiant->niveau);
+           étudiant->dateNaissance.jour,
+           étudiant->dateNaissance.mois,
+           étudiant->dateNaissance.annee);
+    printf("  Genre              : %c\n", étudiant->genre);
+    printf("  Departement        : %s\n", étudiant->departement);
+    printf("  Option             : %s\n", étudiant->option);
+    printf("  Region d'origine   : %s\n", étudiant->regionOrigine);
+    printf("  Niveau             : %d\n", étudiant->niveau);
 
     printf("\n------------------------------------------------------------------------\n\n");
-    printf("Appuyez sur Entree pour continuer...");
+    printf("Appuyez sur Entrée pour continuer...");
     getchar();
 }
 
@@ -307,21 +307,21 @@ void afficherMenuRechercherEtudiant(GestionEtudiants *gestion)
 
     if (gestion->nombre == 0)
     {
-        printf("Aucun etudiant dans la base.\n");
+        printf("Aucun étudiant dans la base.\n");
         printf("\n------------------------------------------------------------------------\n\n");
-        printf("Appuyez sur Entree pour continuer...");
+        printf("Appuyez sur Entrée pour continuer...");
         getchar();
         afficherMenu(gestion);
         return;
     }
 
     char matricule[50];
-    printf("Entrer le matricule de l'etudiant :\n");
+    printf("Entrer le matricule de l'étudiant :\n");
     printf("___________\r");
     fgets(matricule, sizeof(matricule), stdin);
     matricule[strcspn(matricule, "\n")] = '\0';
 
-    printf("\nRecherche de l'etudiant %s en cours...\n", matricule);
+    printf("\nRecherche de l'étudiant %s en cours...\n", matricule);
 
     Etudiant trouve = obtenirEtudiant(gestion, matricule);
 
@@ -332,7 +332,7 @@ void afficherMenuRechercherEtudiant(GestionEtudiants *gestion)
     else
     {
         printf("\n------------------------------------------------------------------------\n\n");
-        printf("Appuyez sur Entree pour continuer...");
+        printf("Appuyez sur Entrée pour continuer...");
         getchar();
     }
 
@@ -348,19 +348,19 @@ void afficherMenuRechercheDichotomique(GestionEtudiants *gestion)
 
     if (gestion->nombre == 0)
     {
-        printf("Aucun etudiant dans la base.\n");
+        printf("Aucun étudiant dans la base.\n");
         printf("\n------------------------------------------------------------------------\n\n");
-        printf("Appuyez sur Entree pour continuer...");
+        printf("Appuyez sur Entrée pour continuer...");
         getchar();
         afficherMenu(gestion);
         return;
     }
 
     qsort(gestion->liste, gestion->nombre, sizeof(Etudiant), comparerEtudiantsParNom);
-    printf("[INFO] Liste triee par nom pour recherche dichotomique\n\n");
+    printf("[INFO] Liste triée par nom pour recherche dichotomique\n\n");
 
     char nom[50];
-    printf("Entrer le nom de l'etudiant :\n");
+    printf("Entrer le nom de l'étudiant :\n");
     printf("___________\r");
     fgets(nom, sizeof(nom), stdin);
     nom[strcspn(nom, "\n")] = '\0';
@@ -371,14 +371,14 @@ void afficherMenuRechercheDichotomique(GestionEtudiants *gestion)
 
     if (index != -1)
     {
-        printf("Etudiant trouve a l'index %d\n", index);
+        printf("Etudiant trouvé à l'index %d\n", index);
         afficherEtudiantTrouve(&gestion->liste[index]);
     }
     else
     {
-        printf("Aucun etudiant trouve avec le nom '%s'\n", nom);
+        printf("Aucun étudiant trouvé avec le nom '%s'\n", nom);
         printf("\n------------------------------------------------------------------------\n\n");
-        printf("Appuyez sur Entree pour continuer...");
+        printf("Appuyez sur Entrée pour continuer...");
         getchar();
     }
 
@@ -414,7 +414,7 @@ void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index)
     printf("3. Prenom\n");
     printf("4. Date de naissance\n");
     printf("5. Genre\n");
-    printf("6. Departement\n");
+    printf("6. Département\n");
     printf("7. Option\n");
     printf("8. Region d'origine\n");
     printf("9. Niveau\n");
@@ -437,7 +437,7 @@ void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index)
         printf("+=======================================+\n");
         printf("Modifications enregistrees!\n");
         printf("\n------------------------------------------------------------------------\n\n");
-        printf("Appuyez sur Entree pour continuer...");
+        printf("Appuyez sur Entrée pour continuer...");
         getchar();
         afficherMenu(gestion);
     }
