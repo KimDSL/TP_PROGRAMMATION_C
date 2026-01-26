@@ -10,3 +10,9 @@ void afficherEtudiantTrouve(Etudiant *etudiant);
 void afficherMenuRechercherEtudiant(GestionEtudiants *gestion);
 void afficherMenuRechercheDichotomique(GestionEtudiants *gestion);
 void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index);
+void afficherMenuSupprimerEtudiant(GestionEtudiants *gestion, int index);
+void afficherMenuCalculerAge(GestionEtudiants *gestion, int index);
+void afficherListeEtudiants(GestionEtudiants *gestion);
+int obtenirChoix(void);
+
+#endif

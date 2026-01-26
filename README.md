@@ -14,6 +14,13 @@ L'objectif de ce projet est de créer une structure de données en langage C pou
 ## Description du projet
 Ce projet consiste à développer une application console en langage C pour gérer les informations des étudiants. L'application permet de stocker, afficher, modifier et supprimer les données des étudiants, ainsi que de trier et rechercher des étudiants en fonction de différents critères.
 
+## Architecture du projet
+TP_PROGRAMMATION_C
+├── main.c          → Point d'entrée
+├── etudiant.c/h    → Structures de données
+├── operations.c/h  → Logique métier (CRUD)
+└── affichage.c/h   → Interface utilisateur
+
 ## Données gerées
 Chaque étudiant est représenté par une structure contenant les informations suivantes :
 - Matricule (identifiant unique pour chaque étudiant)

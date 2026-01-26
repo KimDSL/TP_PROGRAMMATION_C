@@ -451,3 +451,150 @@ void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index)
         afficherMenuModifierEtudiant(gestion, index);
     }
 }
+
+void afficherMenuSupprimerEtudiant(GestionEtudiants *gestion, int index) //L000000
+{
+    if (index < 0 || index >= gestion->nombre)
+    {
+        printf("\n");
+        printf("+==================================+\n");
+        printf("|              ERREUR              |\n");
+        printf("+==================================+\n");
+        printf("Index invalide!\n");
+        afficherMenu(gestion);
+        return;
+    }
+
+    printf("\n");
+    printf("+=======================================+\n");
+    printf("|          SUPPRESSION ETUDIANT         |\n");
+    printf("+=======================================+\n");
+    printf("Etes-vous sur de vouloir supprimer cet etudiant?\n\n");
+
+    Etudiant *e = &gestion->liste[index];
+    printf("  Matricule : [%s]\n", e->matricule);
+    printf("  Nom       : [%s]\n", e->nom);
+    printf("  Prenom    : [%s]\n", e->prenom);
+    printf("  Niveau    : [%d]\n\n", e->niveau);
+
+    printf("1. Oui, supprimer\n");
+    printf("0. Non, annuler\n");
+
+    printf("\n------------------------------------------------------------------------\n");
+    printf("\nVotre choix: ");
+
+    int choix = obtenirChoix();
+    if (choix == 1)
+    {
+        supprimerEtudiant(gestion, index);
+        printf("\n");
+        printf("+=======================================+\n");
+        printf("|            SUPPRESSION                |\n");
+        printf("+=======================================+\n");
+        printf("Etudiant supprime avec succes!\n");
+        printf("\n------------------------------------------------------------------------\n\n");
+        printf("Appuyez sur Entree pour continuer...");
+        getchar();
+    }
+
+    afficherMenu(gestion);
+}
+
+void afficherListeEtudiants(GestionEtudiants *gestion)
+{
+    printf("\n");
+    printf("+========================================================+\n");
+    printf("| LISTE DES ETUDIANTS (%d etudiant(s))%-20s|\n", gestion->nombre, "");
+    printf("+========================================================+\n\n");
+
+    if (gestion->nombre == 0)
+    {
+        printf("Aucun etudiant dans la base.\n");
+        printf("\n------------------------------------------------------------------------\n\n");
+        printf("Appuyez sur Entree pour continuer...");
+        getchar();
+        afficherMenu(gestion);
+        return;
+    }
+
+    printf("+-----+------------------+---------------------+---------------------+-------+------------+-------+---------------------+------------------+--------------------+\n");
+    printf("| No  | Matricule        | Nom                 | Prenom              | Genre | Naissance  | Niveau| Option              | Departement      |  Region d'origine  |\n");
+    printf("+-----+------------------+---------------------+---------------------+-------+------------+-------+---------------------+------------------+--------------------+\n");
+
+    for (int i = 0; i < gestion->nombre; i++)
+    {
+        printf("| %-3d | %-16s | %-19s | %-19s | %-5c | %02d/%02d/%04d | %-5d | %-19s | %-16s | %-18s |\n",
+               i + 1,
+               gestion->liste[i].matricule,
+               gestion->liste[i].nom,
+               gestion->liste[i].prenom,
+               gestion->liste[i].genre,
+               gestion->liste[i].dateNaissance.jour,
+               gestion->liste[i].dateNaissance.mois,
+               gestion->liste[i].dateNaissance.annee,
+               gestion->liste[i].niveau,
+               gestion->liste[i].option,
+               gestion->liste[i].departement,
+               gestion->liste[i].regionOrigine);
+    }
+
+    printf("+-----+------------------+---------------------+---------------------+-------+------------+-------+---------------------+------------------+--------------------+\n");
+    printf("\nTotal: %d etudiant(s)\n", gestion->nombre);
+
+    printf("\n------------------------------------------------------------------------\n\n");
+    printf("Appuyez sur Entree pour continuer...");
+    getchar();
+    afficherMenu(gestion);
+}
+
+void afficherMenuCalculerAge(GestionEtudiants *gestion, int index)
+{
+    if (index < 0 || index >= gestion->nombre)
+    {
+        printf("\n");
+        printf("+==================================+\n");
+        printf("|              ERREUR              |\n");
+        printf("+==================================+\n");
+        printf("Index invalide!\n");
+        afficherMenu(gestion);
+        return;
+    }
+
+    printf("\n");
+    printf("+=========================================+\n");
+    printf("|      CALCULER L'AGE DE L'ETUDIANT       |\n");
+    printf("+=========================================+\n\n");
+
+    Etudiant *e = &gestion->liste[index];
+    printf("Matricule de l'etudiant : %s\n\n", e->matricule);
+
+    printf("------------------------------------------------------------------------\n\n");
+
+    printf("Etudiant : %s %s\n", e->nom, e->prenom);
+    printf("Date de naissance : %02d/%02d/%04d\n",
+           e->dateNaissance.jour,
+           e->dateNaissance.mois,
+           e->dateNaissance.annee);
+
+    int age = 2026 - e->dateNaissance.annee;
+    printf("\nAge approximatif : %d ans\n", age);
+
+    printf("\n------------------------------------------------------------------------\n\n");
+    printf("Appuyez sur Entree pour continuer...");
+    getchar();
+    afficherMenu(gestion);
+}
+
+int obtenirChoix(void)
+{
+    int choix;
+    int resultat = scanf("%d", &choix);
+
+    while (getchar() != '\n')
+        ;
+
+    if (resultat != 1)
+        return -1;
+
+    return choix;
+}
