@@ -117,7 +117,7 @@ void modifierEtudiant(GestionEtudiants *gestion, int index)
     while (getchar() != '\n')
         ;
 
-    /* Traiter le choix */$
+    /* Traiter le choix */
     switch (choix)
     {
     case 1:
