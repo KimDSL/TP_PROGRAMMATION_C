@@ -56,4 +56,30 @@ int comparerEtudiantsParDepartement(const void *a, const void *b);
 // Définition de la fonction pour comparer deux étudiants par niveau pour le tri par niveau
 int comparerEtudiantsParNiveau(const void *a, const void *b);
 
+// Définitions des fonctions pour le menu
+void afficherMenu(GestionEtudiants *gestion);
+/// @paramétre gestion 
+void afficherFormulaireInscrire(GestionEtudiants *gestion);
+/// @paramétre étudiant 
+void afficherEtudiantTrouve(Etudiant *etudiant);
+/// @paramétre gestion 
+void afficherMenuRechercherEtudiant(GestionEtudiants *gestion);
+/// @paramétre gestion 
+void afficherMenuRechercheDichotomique(GestionEtudiants *gestion);
+/// @paramétre gestion et index
+void afficherMenuModifierEtudiant(GestionEtudiants *gestion, int index);
+void afficherMenuSupprimerEtudiant(GestionEtudiants *gestion, int index);
+void afficherMenuCalculerAge(GestionEtudiants *gestion, int index);
+void afficherListeEtudiants(GestionEtudiants *gestion);
+int obtenirChoix(void);
+
+int ajouterEtudiant(GestionEtudiants *gestion, Etudiant etudiant);
+Etudiant obtenirEtudiant(GestionEtudiants *gestion, const char *matricule);
+int selectionnerEtudiant(GestionEtudiants *gestion);
+void modifierEtudiant(GestionEtudiants *gestion, int index);
+int supprimerEtudiant(GestionEtudiants *gestion, int index);
+int rechercheDichotomique(Etudiant *liste, int nombre, const char *matricule);
+
+
+
 #endif

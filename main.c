@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "affichage.h"
 #include "etudiant.h"
-#include "operations.h"
 
 GestionEtudiants gestion;
 
